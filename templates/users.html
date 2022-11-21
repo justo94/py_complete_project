@@ -48,6 +48,10 @@
     <div class="col-10">
         <h1 class="text-center text-info">Users</h1>
         <table class="table table-dark table-hover table-sm">
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+
             <thread>
                 <tr>
                     <th>Name</th>
@@ -61,7 +65,7 @@
                         <tr>
                             <td>{{ user.name }}</td>
                             <td>{{ user.email }}</td>
-                            <td><a class="btn btn-danger" href="#">Delete</a></td>
+                            <td><a class="btn btn-danger" href="/delete/{{ user.id }}">Delete</a></td>
                             <td><a class="btn btn-info" href="#">Update</a></td>
                         </tr>
 

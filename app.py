@@ -21,6 +21,15 @@ def users():
     return render_template("users.html", users=users)
 
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    User.delete().where(User.id == id).execute()
+    flash('User deleted successfully')
+    return redirect(url_for('users'))
+
+
 @app.route('/', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
