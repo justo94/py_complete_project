@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="/home">eMobiblis Shop</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users">VIEW USERS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">ADD USERS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">VIEW PRODUCTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/add_product">ADD PRODUCTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">LOGOUT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<hr>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1 class="text-center text-info">Users</h1>
+        <table class="table table-dark table-hover table-sm">
+            <thread>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thread>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td><a class="btn btn-danger" href="#">Delete</a></td>
+                            <td><a class="btn btn-info" href="#">Update</a></td>
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
