@@ -9,7 +9,7 @@
      <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
 </head>
 <body>
-    <h1 class="text-info text-center mb-2">Register Here</h1>
+    <h1 class="text-info text-center mb-2">Update</h1>
     <div class="row">
         <div class="col-3"></div>
             <div class="col-6">
@@ -18,11 +18,11 @@
             {% endfor %}
 
             <form method="post" action="">
-                <input type="text" name="jina" placeholder="Enter name" class="form-control"><br>
-                <input type="email" name="arafa" placeholder="Enter email" class="form-control"><br>
-                <input type="password" name="siri" placeholder="Enter password" class="form-control"><br>
+                <input value="{{ user.name }}" type="text" name="jina" placeholder="Enter name" class="form-control"><br>
+                <input value="{{ user.email }}" type="email" name="arafa" placeholder="Enter email" class="form-control"><br>
+                <input value="{{ user.password }}" type="password" name="siri" placeholder="Enter password" class="form-control"><br>
                 <input type="submit" value="Register" class="btn btn-outline-info btn-block">
-                <a class="btn btn_outline_success btn-block" href="/login">Have an account? Login</a>
+                <a class="btn btn_outline_success btn-block" href="/users">Back</a>
              </form>
             </div>
             <div class="col-3"></div>

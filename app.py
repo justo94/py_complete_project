@@ -30,6 +30,24 @@ def delete(id):
     return redirect(url_for('users'))
 
 
+@app.route('/update/<int:id>', methods=["GET", "POST"])
+def update(id):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    user = User.get(User.id == id)
+    if request.method == "POST":
+        updatedName = request.form["jina"]
+        updatedEmail = request.form["arafa"]
+        updatedPassword = request.form["siri"]
+        user.name = updatedName
+        user.email = updatedEmail
+        user.password = updatedPassword
+        user.password = generate_password_hash(updatedPassword)
+        flash('Record updated successfully')
+        return redirect(url_for('users'))
+    return render_template("users.html",user=user)
+
+
 @app.route('/', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -65,3 +83,4 @@ def login():
 
 if __name__ == '__main__':
     app.run()
+#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
